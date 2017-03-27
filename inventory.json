@@ -1,0 +1,28 @@
+{
+  "cars": [
+    {
+      "make": "Mini",
+      "model": "Cooper",
+      "image": "http://o.aolcdn.com/dims-shared/dims3/GLOB/crop/1280x720+0+154/resize/800x450!/format/jpg/quality/85/http://o.aolcdn.com/hss/storage/midas/77d9a2f2638ec0aa13538f43378d7b86/201878114/2006-mini-cooper.jpg",
+      "year": "2006",
+      "price": "8999",
+      "description": "This is an immaculate 2006 Mini Cooper with only 25000 miles on it. Leather seats, power everything."
+    },
+    {
+      "make": "Toyota",
+      "model": "Prius",
+      "image": "http://www.thetorquereport.com/assets_c/2012/02/2012_Toyota_Prius_Plugin_030-thumb-530x353-18531.jpg",
+      "year": "2012",
+      "price": "11500",
+      "description": "This pristine Toyota Prius is quite the beauty and drives perfectly."
+    },
+    {
+      "make": "Infiniti",
+      "model": "G35",
+      "image": "http://www.elepent.com/autos/wp-content/uploads/2009/10/g35_coupe.jpg",
+      "year": "2009",
+      "price": "13700",
+      "description": "This Infiniti G35 will get you from point A to B in style."
+    }
+  ]
+}
