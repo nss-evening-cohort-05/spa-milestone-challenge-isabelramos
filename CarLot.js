@@ -1,26 +1,28 @@
 var CarLot = (function (oldCarLot) {
 	
 	var inventory = [];
-	var carXhrData;
-	
-	function executeThisCodeAfterFileLoadInventory () {
-		var carXhrData = JSON.parse(this.responseText).cars;
-		for (var i=0; i<carXhrData.length; i++) {
-			CarLot.loadInventory(carXhrData[i]);
-		}
-		return carXhrData;
-		console.log(carXhrData);
-    }
 
 	return {
 		loadInventory: function (callback) {
 			var inventoryLoader = new XMLHttpRequest();
-			inventoryLoader.addEventListener("load", executeThisCodeAfterFileLoadInventory);
+
+			inventoryLoader.addEventListener("load", function () {
+				var carXhrData = JSON.parse(this.responseText);
+				inventory = carXhrData.cars;
+				populatePage(inventory);
+			});
+
 			inventoryLoader.addEventListener("error", executeThisCodeAfterFileFail);
 			inventoryLoader.open("GET", "inventory.json");
 			inventoryLoader.send();
+
+			oldCarLot.getXhr = function () {
+				return inventory;
+				console.log(inventory);
+			}
 		}
 	};
+
 
 	function executeThisCodeAfterFileFail () {
 		console.log("failureeee!");
@@ -30,9 +32,4 @@ var CarLot = (function (oldCarLot) {
 	return oldCarLot;
 
 })(CarLot || {});
-
-
-
-
-
 
