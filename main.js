@@ -9,7 +9,6 @@ function populatePage (inventory) {
   // Loop over the inventory and populate the page
   for (counter = 0; counter < inventory.length; counter++) {
 	
-	console.log(inventory);
 	var currentCar;
 	var carString = "";
 	currentCar = inventory[counter];
@@ -20,15 +19,14 @@ function populatePage (inventory) {
 	carString += `<h2 class="grandchild">${currentCar.make} ${currentCar.model}</h2>`;
 	carString += `<h4 class="grandchild">${currentCar.year}</h4>`;
 	carString += `<p class="grandchild">${currentCar.description}</p>`;
-	carString += `<strong class="grandchild">${currentCar.price}</strong>`;
+	carString += `<strong class="grandchild">$${currentCar.price}</strong>`;
 	carString += `</div>`;
 	container.innerHTML += carString;
 	}
 }
   
-  // Now that the DOM is loaded, establish all the event listeners needed
-//   CarLot.activateEvents();
-// }
+// Now that the DOM is loaded, establish all the event listeners needed
+// CarLot.activateEvents();
 
 
 // Load the inventory and send a callback function to be

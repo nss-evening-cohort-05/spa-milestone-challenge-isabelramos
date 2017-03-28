@@ -1,4 +1,4 @@
-var CarLot = (function (oldCarLot) {
+var CarLot = (function () {
 	
 	var inventory = [];
 
@@ -16,20 +16,17 @@ var CarLot = (function (oldCarLot) {
 			inventoryLoader.open("GET", "inventory.json");
 			inventoryLoader.send();
 
-			oldCarLot.getXhr = function () {
-				return inventory;
-				console.log(inventory);
-			}
-		}
-	};
+		},
 
+	    getInventory: function () {
+	      return inventory;
+	    }
+
+	};
 
 	function executeThisCodeAfterFileFail () {
 		console.log("failureeee!");
 	}
 
 
-	return oldCarLot;
-
 })(CarLot || {});
-
