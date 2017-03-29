@@ -1,7 +1,5 @@
-var inputField = document.getElementById("input-text");
 var container = document.getElementById("car-container");
 var inventory = [];
-var editedDescription = "";
 
 
 function populatePage (inventory) {
@@ -26,7 +24,7 @@ function populatePage (inventory) {
 }
   
 // Now that the DOM is loaded, establish all the event listeners needed
-// CarLot.activateEvents();
+CarLot.activateEvents();
 
 
 // Load the inventory and send a callback function to be

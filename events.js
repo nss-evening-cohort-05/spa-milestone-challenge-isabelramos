@@ -1,15 +1,15 @@
-var containerElement;
-var selectedCar;
-
-
 var CarLot = (function (oldCarLot) {
+
+	var inputField = document.getElementById("input-text");
+	var containerElement;
+	var selectedCar;
+	var editedDescription = "";
+	containerElement = document.getElementsByClassName("car-container");
 
 	oldCarLot.activateEvents = function () {
 
-		containerElement = document.getElementsByClassName("car-container");
-
 		for (var i=0; i < containerElement.length; i++) {
-			containerElement[i].addEventListener("click", function(event){
+			containerElement[i].addEventListener("click", function (event) {
 				if (event.target.className === "child") {
 					selectedCar = event.target.parentNode;
 					selectedCar.classList.add("thicker-border");
@@ -21,7 +21,7 @@ var CarLot = (function (oldCarLot) {
 				}
 			});
 		}
-	}
+	};
 
 	return oldCarLot;
 
