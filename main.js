@@ -1,5 +1,9 @@
-var container = document.getElementById("car-container");
+var container = document.getElementById("container");
 var inventory = [];
+var inputField = document.getElementById("input-text");
+var containerElement;
+var selectedCar;
+var editedDescription = "";
 
 
 function populatePage (inventory) {
@@ -11,7 +15,7 @@ function populatePage (inventory) {
 	var carString = "";
 	currentCar = inventory[counter];
 
-	carString += `<div class="row col-sm-6 col-md-4 thumbnail car-container" id="car-${counter}">`;
+	carString += `<div class="row col-sm-6 col-md-4 thumbnail element-${counter} car-container" id="car-${counter}">`;
 	carString += `<img src="${currentCar.image}" class="child">`;
 	carString += `<div class="caption child">`;
 	carString += `<h2 class="grandchild">${currentCar.make} ${currentCar.model}</h2>`;
@@ -21,10 +25,11 @@ function populatePage (inventory) {
 	carString += `</div>`;
 	container.innerHTML += carString;
 	}
-}
+
   
 // Now that the DOM is loaded, establish all the event listeners needed
 CarLot.activateEvents();
+}
 
 
 // Load the inventory and send a callback function to be

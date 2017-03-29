@@ -21,6 +21,18 @@ var CarLot = (function (oldCarLot) {
 				}
 			});
 		}
+
+		inputField.addEventListener("keypress", function(event){
+			var dynamicDescription = selectedCar.lastChild.lastChild.previousSibling;
+
+			if (event.keyCode !== 13) {
+				dynamicDescription.innerHTML = "";
+				editedDescription += event.key;
+				dynamicDescription.innerHTML += editedDescription;
+			} else {
+				inputField.value = "";
+			}
+		});
 	};
 
 	return oldCarLot;
