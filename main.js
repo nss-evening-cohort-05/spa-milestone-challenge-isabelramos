@@ -15,7 +15,7 @@ function populatePage (inventory) {
 	var carString = "";
 	currentCar = inventory[counter];
 
-	carString += `<div class="row col-sm-6 col-md-4 thumbnail element-${counter} car-container" id="car-${counter}">`;
+	carString += `<div class="row col-sm-6 col-md-4 thumbnail black-border element-${counter} car-container" id="car-${counter}">`;
 	carString += `<img src="${currentCar.image}" class="child">`;
 	carString += `<div class="caption child">`;
 	carString += `<h2 class="grandchild">${currentCar.make} ${currentCar.model}</h2>`;
