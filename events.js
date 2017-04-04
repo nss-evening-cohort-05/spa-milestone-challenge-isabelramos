@@ -7,37 +7,45 @@ var CarLot = (function (oldCarLot) {
 	var blackBorder = document.getElementsByClassName("black-border");
 	containerElement = document.getElementsByClassName("car-container");
 
-	oldCarLot.activateEvents = function () {
-
+		oldCarLot.addStyles = function () {
 			for (var i=0; i < containerElement.length; i++) {
 				containerElement[i].addEventListener("click", function (event) {
 					if (event.target.className === "child") {
 						selectedCar = event.target.parentNode;
-						selectedCar.classList.add("thicker-border");
-						selectedCar.classList.add("blue-bg");
+						selectedCar.classList.toggle("thicker-border");
+						selectedCar.classList.toggle("blue-bg");
 						inputField.focus();
 					} else if (event.target.className === "grandchild") {
 						selectedCar = event.target.parentNode.parentNode;
-						selectedCar.classList.add("thicker-border");
-						selectedCar.classList.add("blue-bg");
+						selectedCar.classList.toggle("thicker-border");
+						selectedCar.classList.toggle("blue-bg");
 						inputField.focus();
 					}
 				});
 			}
+		}
 
 
-		inputField.addEventListener("keypress", function(event){
-			var dynamicDescription = selectedCar.lastChild.lastChild.previousSibling;
+		oldCarLot.resetStyles = function () {
+			carElement = document.getElementsByClassName("car-container");
 
-			if (event.keyCode !== 13) {
-				dynamicDescription.innerHTML = "";
-				editedDescription += event.key;
-				dynamicDescription.innerHTML += editedDescription;
-			} else {
-				inputField.value = "";
+			// containerElement.classList.remove("thicker-border");
+			for (var i=0; i < carElement.length; i++) {
+				console.log(carElement);
+				carElement[i].classList.remove("thicker-border");
+				// containerElement[i].addEventListener("click", function (event) {
+				// 	console.log(containerElement.classList.contains("thicker-border"));
+				// 	if (containerElement.classList.includes("thicker-border")) {
+				// 		containerElement.classList.remove("thicker-border");
+				// 		containerElement.classList.remove("blue-bg");
+				// 	}
+				// });
 			}
-		});
-	};
+		}
+
+	oldCarLot.getSelectedCar = function () {
+		return selectedCar;
+	}
 
 	return oldCarLot;
 
