@@ -1,13 +1,16 @@
 var CarLot = (function (oldCarLot) {
 
 	function editDescription () {
+
 		inputField.addEventListener("keypress", function (event){
 			var selectedCar = CarLot.getSelectedCar();
 			var dynamicDescription = selectedCar.lastChild.lastChild.previousSibling;
+			var editedDescription = dynamicDescription.innerText;
 
 			if (event.keyCode !== 13) {
 				dynamicDescription.innerHTML = "";
 				editedDescription += event.key;
+				
 				dynamicDescription.innerHTML += editedDescription;
 			} else {
 				inputField.value = "";
