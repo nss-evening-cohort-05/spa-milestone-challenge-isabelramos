@@ -1,6 +1,7 @@
 var container = document.getElementById("container");
 var inventory = [];
 var inputField = document.getElementById("input-text");
+var descriptionContainer = document.getElementById("bio");
 var containerElement;
 var selectedCar;
 var editedDescription = "";
@@ -29,8 +30,6 @@ function populatePage (inventory) {
   
 // Now that the DOM is loaded, establish all the event listeners needed
 CarLot.activateEvents();
-CarLot.resetStyles();
-CarLot.addStyles();
 }
 
 

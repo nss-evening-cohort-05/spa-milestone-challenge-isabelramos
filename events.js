@@ -6,49 +6,67 @@ var CarLot = (function (oldCarLot) {
 	var editedDescription = "";
 	var blackBorder = document.getElementsByClassName("black-border");
 	var dynamicDescription;
-	var inputDescription;
 	containerElement = document.getElementsByClassName("car-container");
 
-		oldCarLot.addStyles = function () {
+		oldCarLot.activateEvents = function () {
 			for (var i=0; i < containerElement.length; i++) {
 				containerElement[i].addEventListener("click", function (event) {
+				oldCarLot.resetStyles();
 					if (event.target.className === "child") {
 						selectedCar = event.target.parentNode;
 						dynamicDescription = selectedCar.lastChild.lastChild.previousSibling;
-						inputDescription = dynamicDescription.innerText;
 						selectedCar.classList.add("thicker-border");
 						selectedCar.classList.add("blue-bg");
 						inputField.focus();
-						inputField.value = inputDescription;
+
+						if (selectedCar.classList.contains("thicker-border")) {
+							inputField.value = selectedCar.lastChild.lastChild.previousSibling.innerHTML;
+							
+							inputField.addEventListener("keyup", function (event) {
+							dynamicDescription = selectedCar.lastChild.lastChild.previousSibling;
+
+								if (event.keyCode !== 13) {
+									dynamicDescription.innerHTML = inputField.value;
+								} else {
+									inputField.value = "";
+									inputField.blur();
+								}
+							});
+						}
+
 					} else if (event.target.className === "grandchild") {
 						selectedCar = event.target.parentNode.parentNode;
 						selectedCar.classList.add("thicker-border");
 						selectedCar.classList.add("blue-bg");
 						inputField.focus();
-						inputField.value = inputDescription;
+
+						if (selectedCar.classList.contains("thicker-border")) {
+							inputField.value = selectedCar.lastChild.lastChild.previousSibling.innerHTML;
+							inputField.addEventListener("keyup", function (event) {
+							dynamicDescription = selectedCar.lastChild.lastChild.previousSibling;
+
+								if (event.keyCode !== 13) {
+									dynamicDescription.innerHTML = inputField.value;
+								} else {
+									inputField.value = "";
+									inputField.blur();
+								}
+							});
+						}
 					}
 				});
-				oldCarLot.resetStyles();
-
+				
 			}
 		}
 
+		var dynamicDescription;
 
 		oldCarLot.resetStyles = function () {
-			// for (var i=0; i < containerElement.length; i++) {
-			// 	containerElement[i].classList.remove("thicker-border");
-			// 	containerElement[i].addEventListener("click", function (event) {
-			// 		if (containerElement.classList.contains("thicker-border")) {
-			// 			containerElement.classList.remove("thicker-border");
-			// 			containerElement.classList.remove("blue-bg");
-			// 		}
-			// 	});
-			// }
+			for (var i=0; i < containerElement.length; i++) {
+				containerElement[i].classList.remove("thicker-border");
+				containerElement[i].classList.remove("blue-bg");
+			}
 		}
-
-	oldCarLot.getSelectedCar = function () {
-		return selectedCar;
-	}
 
 	return oldCarLot;
 
