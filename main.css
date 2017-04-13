@@ -1,0 +1,16 @@
+.car-container {
+	width: 31%;
+	margin: 1%;
+}
+
+.black-border {
+	border: 1px solid black;
+}
+
+.thicker-border {
+	border: 3px solid black;
+}
+
+.blue-bg {
+	background-color: lightblue;
+}
